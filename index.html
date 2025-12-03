@@ -45,120 +45,58 @@ section { padding:120px 50px; min-height:100vh; display:flex; flex-direction:col
 @keyframes float { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
 
 /* ===== Work ===== */
-/* ===== Work ===== */
-.work h2 {
-  font-family:'Press Start 2P', cursive;
-  font-size:2rem;
-  color:#00ffff;
-  margin-bottom:2rem;
-  text-shadow: 0 0 10px #00ffff;
-}
-
 .work-grid {
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap:20px;
-  justify-items:center;
 }
-
 .work-item {
-  position: relative;
-  overflow: hidden;
+  position:relative;
   border-radius:12px;
   cursor:pointer;
-  box-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff;
-  transition: transform 0.4s, box-shadow 0.4s;
-  width: 220px; /* smaller square */
-  height: 180px;
+  overflow:hidden;
+  width:220px;
+  height:180px;
+  transition:.4s;
+  box-shadow:0 0 20px #00ffff;
 }
-
-.work-item img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition: transform 0.4s, filter 0.4s;
-}
-
-.work-item:hover img {
-  transform: scale(1.1) rotate(-2deg);
-  filter: brightness(1.2);
-}
-
-.work-item .overlay {
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:40%;
-  background: linear-gradient(to top, rgba(0,255,255,0.8), transparent);
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  opacity:0;
-  transition: opacity 0.3s;
-}
-
-.work-item:hover .overlay {
-  opacity:1;
-}
-
-.work-item .overlay p {
-  color:#fff;
-  font-weight:bold;
-  font-size:0.8rem;
-  text-shadow: 0 0 5px #00ffff;
-}
-
-/* ===== Responsive ===== */
-@media(max-width:768px){
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-  .work-item {
-    width: 90%;
-    height: 180px;
-  }
-}
-
-
-/* ===== Blog ===== */
-.blog h2 { font-family:'Press Start 2P', cursive; font-size:1.8rem; color:#ff00ff; margin-bottom:2rem; }
-.blog-posts { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:20px; }
-.blog-post { background:#222; border-radius:15px; padding:15px; box-shadow:0 0 15px #00ffff; transition:0.3s; cursor:default; }
-.blog-post img { width:100%; border-radius:10px; margin-bottom:10px; filter: saturate(150%); }
-.blog-post h3 { color:#ff00ff; font-size:1rem; margin-bottom:0.5rem; }
-.blog-post p { color:#fff; font-size:0.85rem; }
-
-/* ===== Contact ===== */
-form { display:flex; flex-direction:column; max-width:400px; width:100%; }
-input, textarea { padding:10px; margin-bottom:10px; border:2px solid #00ffff; border-radius:5px; background:#111; color:#fff; outline:none; }
-input:focus, textarea:focus { border-color:#ff00ff; }
-button { padding:10px; border:none; border-radius:5px; background:#ff00ff; color:#fff; font-weight:bold; cursor:pointer; transition:0.3s; text-transform: uppercase; }
-button:hover { background:#00ffff; }
-
-/* ===== Footer ===== */
-footer { text-align:center; padding:20px; background:#111; color:#fff; font-size:0.9rem; }
-footer a { color:#ff00ff; margin:0 5px; text-decoration:none; transition:0.3s; }
-footer a:hover { color:#00ffff; }
+.work-item img { width:100%; height:100%; object-fit:cover; transition:.4s; }
+.work-item:hover img { transform:scale(1.1); }
 
 /* ===== Lightbox ===== */
-.lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); justify-content:center; align-items:center; z-index:9999; }
-.lightbox img { max-width:90%; max-height:80%; border-radius:10px; }
-.lightbox .close { position:absolute; top:20px; right:40px; font-size:50px; color:#fff; cursor:pointer; }
-.lightbox .prev, .lightbox .next { position:absolute; top:50%; color:#fff; font-size:50px; cursor:pointer; user-select:none; transform: translateY(-50%); }
-.lightbox .prev { left:30px; }
-.lightbox .next { right:30px; }
+.lightbox {
+  display:none; position:fixed;
+  top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,.95);
+  justify-content:center; align-items:center;
+  z-index:99999;
+}
+.lightbox img {
+  max-width:90%; max-height:80%;
+  border-radius:10px;
+  transition:0.3s;
+}
+.lightbox .close {
+  position:absolute; top:20px; right:40px;
+  font-size:50px; color:white; cursor:pointer;
+}
+.lightbox .prev, .lightbox .next {
+  position:absolute; top:50%; font-size:50px;
+  color:white; cursor:pointer; user-select:none;
+  transform:translateY(-50%);
+}
+.prev { left:30px; }
+.next { right:30px; }
 
-/* ===== Responsive ===== */
 @media(max-width:768px){
-  nav { flex-direction: column; }
-  nav a { margin:0.5rem 0; }
+  .work-grid { grid-template-columns:1fr; }
+  .work-item { width:90%; }
 }
 </style>
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- NAVBAR -->
 <nav>
   <div class="logo">VASU SEJANI</div>
   <div class="nav-links">
@@ -170,223 +108,98 @@ footer a:hover { color:#00ffff; }
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- HERO -->
 <section id="home" class="hero">
   <h1>👋 Hey, I'm Vasu!</h1>
-  <p><h2>Crazy web developer & designer. I make neon, animated style websites. Scroll down for the madness! 🚀</h2></p>
+  <p><h2>Crazy neon-style developer. Scroll for madness 🚀</h2></p>
 </section>
 
-<!-- About -->
+<!-- ABOUT -->
 <section id="about" class="about">
-  <img src="vasu.jpg" alt="Vasu Sejani">
-  <h2>
-  <p>Yo! I'm Vasu, a full-stack dev from India. I love neon vibes, animations, and bold designs. HTML, CSS, JS, PHP, you name it – I code it.
-     Let's make something lit together! 💥</p>
-</h2>
+  <img src="vasu.jpg">
+  <p>Yo! I'm Vasu, a full-stack dev from India. Neon, animations, crazy UI — I build everything!</p>
 </section>
 
-<!-- Work Section -->
+<!-- WORK -->
 <section id="work" class="work">
   <h2>My Projects</h2>
   <div class="work-grid">
-    <div class="work-item" data-project="0">
-      <img src="img/P1-1.png" alt="Project 1">
-      <div class="overlay"><p>Restaurant Billing System</p></div>
-    </div>
-    <div class="work-item" data-project="1">
-      <img src="img/P2-1.png" alt="Project 2">
-      <div class="overlay"><p>QR Attendance System</p></div>
-    </div>
-    <div class="work-item" data-project="2">
-      <img src="img/P3-1.png" alt="Project 3">
-      <div class="overlay"><p>Portfolio Website</p></div>
-    </div>
-    <div class="work-item" data-project="3">
-      <img src="img/P4-3.png" alt="Project 4">
-      <div class="overlay"><p>Dynamic Invoice System</p></div>
-    </div>
+    <div class="work-item" data-index="0"><img src="img/P1-1.png"></div>
+    <div class="work-item" data-index="1"><img src="img/P2-1.png"></div>
+    <div class="work-item" data-index="2"><img src="img/P3-1.png"></div>
+    <div class="work-item" data-index="3"><img src="img/P4-3.png"></div>
   </div>
 </section>
 
-<!-- Lightbox -->
+<!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
   <span class="close" onclick="closeLightbox()">&times;</span>
-  <img id="lightbox-img" src="">
-  <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
-  <div class="next" onclick="changeSlide(1)">&#10095;</div>
+  <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+  <img id="lightbox-img">
+  <span class="next" onclick="changeSlide(1)">&#10095;</span>
 </div>
 
 <script>
-// ===== Multi-image projects =====
+/* ===== Project Images ===== */
 const projectImages = [
-  ["img/P1-1.png","img/P1-2.png","img/P1-3.png","img/P1-4.png","img/P1-5.png"],
-  ["img/P2-1.png","img/P2-2.png","img/P2-3.png","img/P2-4.png","img/P2-5.png","img/P2-6.png"],
-  ["img/P3-1.png","img/P3-2.png","img/P3-3.png","img/P3-4.png","img/P3-5.png","img/P3-6.png","img/P3-7.png"],
+  ["img/P1-1.png","img/P1-2.png","img/P1-3.png","img/P1-4.png"],
+  ["img/P2-1.png","img/P2-2.png","img/P2-3.png","img/P2-4.png"],
+  ["img/P3-1.png","img/P3-2.png","img/P3-3.png","img/P3-4.png"],
   ["img/P4-1.png","img/P4-2.png","img/P4-3.png"]
 ];
 
-let currentProjectIndex = 0;
-let currentSlideIndex = 0;
+let projectIndex = 0;
+let slideIndex = 0;
 
-// Open lightbox for specific project
-function openLightbox(projectIndex) {
-  currentProjectIndex = projectIndex;
-  currentSlideIndex = 0;
-  document.getElementById('lightbox').style.display = 'flex';
-  document.getElementById('lightbox-img').src = projectImages[currentProjectIndex][currentSlideIndex];
+document.querySelectorAll(".work-item").forEach(item => {
+  item.onclick = () => {
+    projectIndex = item.dataset.index;
+    slideIndex = 0;
+    openLightbox();
+  };
+});
+
+function openLightbox() {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = projectImages[projectIndex][slideIndex];
 }
-
-// Close lightbox
 function closeLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
+  document.getElementById("lightbox").style.display = "none";
+}
+function changeSlide(n) {
+  slideIndex += n;
+  const arr = projectImages[projectIndex];
+  if (slideIndex < 0) slideIndex = arr.length - 1;
+  if (slideIndex >= arr.length) slideIndex = 0;
+  document.getElementById("lightbox-img").src = arr[slideIndex];
 }
 
-// Change slide
-function changeSlide(step) {
-  const slides = projectImages[currentProjectIndex];
-  currentSlideIndex += step;
-  if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
-  if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
-  document.getElementById('lightbox-img').src = slides[currentSlideIndex];
-}
+/* ===== TOUCH SWIPE SUPPORT ===== */
+let startX = 0;
 
-// Add click events to work items
-document.querySelectorAll('.work-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const projectIndex = parseInt(item.getAttribute('data-project'));
-    openLightbox(projectIndex);
-  });
+document.getElementById("lightbox-img").addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+document.getElementById("lightbox-img").addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) changeSlide(1);     // swipe left
+  if (endX - startX > 50) changeSlide(-1);    // swipe right
 });
 </script>
 
-
-
-<!-- Blog -->
-<!-- Blog Section -->
-<section id="blog">
-  <h2>Blog Posts</h2>
-  <br>
-  <br>
-  <div class="blog-posts">
-    
-    <!-- Blog Post 1 -->
-    <article class="blog-post">
-      <h3>Build Crazy Websites</h3>
-      <p>Learn how to create bold and flashy websites with neon vibes, animations, and Gen-Z aesthetics. Tips and tricks to make your portfolio stand out!</p>
-    </article>
-
-    <!-- Blog Post 2 -->
-    <article class="blog-post">
-      <h3>Top 5 JavaScript Tricks</h3>
-      <p>Discover fun and interactive JavaScript tricks that can make your website playful and engaging. From animations to clever interactions, boost your UX!</p>
-    </article>
-
-    <!-- Blog Post 3 -->
-    <article class="blog-post">
-      <h3>Neon CSS Animations</h3>
-      <p>Master the art of neon glowing elements with CSS animations that pop. Perfect for portfolios and projects that need a modern, energetic vibe.</p>
-    </article>
-
-    <!-- Blog Post 4 -->
-    <article class="blog-post">
-      <h3>Responsive Design Tips</h3>
-      <p>Learn best practices for responsive web design that looks amazing on any device. Improve usability and make your websites mobile-friendly!</p>
-    </article>
-
-    <!-- Blog Post 5 -->
-    <article class="blog-post">
-      <h3>UI/UX Best Practices</h3>
-      <p>Enhance your website’s user experience with proven UI/UX strategies. From layout to color schemes, make your sites intuitive and attractive.</p>
-    </article>
-
-    <!-- Blog Post 6 -->
-    <article class="blog-post">
-      <h3>Optimize Website Performance</h3>
-      <p>Tips and tricks to speed up your website, reduce load times, and improve SEO. Keep users happy and rank higher on search engines.</p>
-    </article>
-
-  </div>
-</section>
-
-
-<!-- Contact -->
-<!-- Contact Section -->
-<!-- Contact Section -->
+<!-- CONTACT -->
 <section id="contact">
   <h2>Hit Me Up!</h2>
-  <div class="contact-info">
-    <p>📞 Phone: <a href="tel:+916355961050">+91 63559 61050</a></p>
-    <p>💬 WhatsApp: <a href="https://wa.me/916355961050" target="_blank">Chat on WhatsApp</a></p>
-    <p>✉️ Email: <a href="mailto:vasusejani123@gmail.com">vasusejani123@gmail.com</a></p>
-    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/vasu-sejani5354" target="_blank">Vasu Sejani</a></p>
-  </div>
+  <p>📞 <a href="tel:+916355961050">+91 63559 61050</a></p>
+  <p>💬 <a href="https://wa.me/916355961050" target="_blank">WhatsApp</a></p>
+  <p>✉️ <a href="mailto:vasusejani123@gmail.com">vasusejani123@gmail.com</a></p>
+  <p>🔗 <a href="https://linkedin.com/in/vasu-sejani5354" target="_blank">LinkedIn</a></p>
 </section>
 
-<style>
-  #contact {
-    padding: 60px 20px;
-background: rgba(0,0,0,0.95);    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  #contact h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 40px;
-  }
-
-  .contact-info p {
-    font-size: 1.1rem;
-    color: #555;
-    margin: 12px 0;
-    transition: transform 0.3s, color 0.3s;
-  }
-
-  .contact-info a {
-    text-decoration: none;
-    color: #1a73e8;
-    font-weight: 500;
-  }
-
-  .contact-info a:hover {
-    color: #0b52c1;
-    text-decoration: underline;
-  }
-
-  /* Optional emoji/icon spacing */
-  .contact-info p::before {
-    display: inline-block;
-    width: 30px;
-  }
-
-  @media (max-width: 600px) {
-    #contact h2 {
-      font-size: 2rem;
-    }
-    .contact-info p {
-      font-size: 1rem;
-    }
-  }
-</style>
-
-
-<!-- Footer -->
 <footer>
-  &copy; 2025 Vasu Sejani | 
-  <a href="#">LinkedIn</a> |
-  <a href="#">GitHub</a> |
-  <a href="#">Twitter</a>
+  © 2025 Vasu Sejani
 </footer>
-
-<!-- Lightbox for Work -->
-<div id="lightbox" class="lightbox">
-  <span class="close" onclick="closeLightbox()">&times;</span>
-  <img id="lightbox-img" src="">
-  <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
-  <div class="next" onclick="changeSlide(1)">&#10095;</div>
-</div>
-
 
 </body>
 </html>
-
