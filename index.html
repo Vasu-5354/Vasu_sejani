@@ -19,146 +19,128 @@ nav {
   padding:1rem 2rem; z-index: 1000;
   background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
 }
-nav .logo { font-family: 'Pacifico', cursive; font-size:2rem; color:#ff8400; text-shadow: 0 0 5px #ff00ff; }
-nav a { color:#fff; margin-left:1.5rem; text-decoration:none; font-weight:bold; transition:0.3s; }
+nav .logo { font-family: 'Pacifico', cursive; font-size:2rem; color:#ff8400; }
+nav a { color:#fff; margin-left:1.5rem; text-decoration:none; font-weight:bold; position: relative; }
 nav a:hover { color:#00ffff; }
 
 /* ===== Sections ===== */
 section { padding:120px 50px; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
-#home { background: linear-gradient(120deg, #ff0080, #7928ca, #00ffff); background-size: 600% 600%; animation: gradient 15s ease infinite; }
+#home { background: linear-gradient(120deg, #ff0080, #7928ca, #00ffff); background-size:600% 600%; animation:gradient 15s infinite; }
+@keyframes gradient { 0%{background-position:0 50%} 50%{background-position:100% 50%} 100%{background-position:0 50%} }
 
-@keyframes gradient { 
-  0%{background-position:0% 50%;} 
-  50%{background-position:100% 50%;} 
-  100%{background-position:0% 50%;} 
-}
-
-.hero h1 { font-family:'Press Start 2P', cursive; font-size:2rem; color:#00ffff; margin-bottom:1rem; }
-.hero h2 { color:#fff; }
+/* ===== Hero ===== */
+.hero h1 { font-family:'Press Start 2P'; font-size:2rem; color:#00ffff; text-shadow:0 0 12px #00ffff; }
 
 /* ===== About ===== */
-#about img {
-  width:180px;
-  border-radius:50%;
-  border:3px solid #ff00ff;
-  margin-bottom:1rem;
-  animation: float 3s ease-in-out infinite alternate;
+.about img {
+  width:180px; border-radius:50%; border:3px solid #ff00ff;
+  animation: float 3s infinite alternate ease-in-out;
 }
 @keyframes float { 0%{transform:translateY(0);} 100%{transform:translateY(-15px);} }
 
-/* ===== Work Grid ===== */
+/* ===== Work ===== */
 .work-grid {
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  grid-template-columns: repeat(2,1fr);
   gap:20px;
 }
 .work-item {
-  cursor:pointer;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 0 20px #00ffff;
+  width:220px; height:180px; cursor:pointer;
+  overflow:hidden; border-radius:12px;
+  box-shadow:0 0 20px #00ffff, 0 0 20px #ff00ff;
   transition:.3s;
 }
-.work-item img { width:100%; height:180px; object-fit:cover; }
+.work-item img { width:100%; height:100%; object-fit:cover; }
 
 /* ===== Lightbox ===== */
 .lightbox {
-  display:none; position:fixed;
-  top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,.95);
+  display:none; position:fixed; top:0; left:0;
+  width:100%; height:100%; z-index:9999;
+  background:rgba(0,0,0,0.95);
   justify-content:center; align-items:center;
-  z-index:99999;
 }
-.lightbox img {
-  max-width:90%; max-height:80%;
-  border-radius:10px;
-}
-.lightbox span {
-  position:absolute; top:50%;
+.lightbox img { max-width:90%; max-height:80%; border-radius:10px; }
+.close { position:absolute; top:25px; right:40px; font-size:45px; cursor:pointer; }
+.prev, .next {
+  position:absolute; top:50%; font-size:50px;
+  cursor:pointer; user-select:none;
   transform:translateY(-50%);
-  font-size:50px; cursor:pointer; user-select:none;
-  color:white;
 }
 .prev { left:30px; }
 .next { right:30px; }
-.close {
-  top:30px !important;
-  right:40px;
-  font-size:45px;
-  transform:none !important;
-}
 
 /* ===== Blog ===== */
 .blog-posts {
   display:grid; gap:20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
 }
 .blog-post {
-  background:#222; padding:20px;
-  border-radius:12px; box-shadow:0 0 20px #ff00ff55;
+  background:#222; padding:20px; border-radius:12px;
+  box-shadow:0 0 15px #ff00ff77;
 }
 
-/* ===== CONTACT NEW STYLISH ===== */
-
-.contact-section {
-  padding: 100px 20px;
-  background: #0d0d0d;
-  text-align: center;
+/* ===== Contact (NEW NEON STYLE) ===== */
+#contact {
+  padding:80px 20px;
+  background:#000;
+  text-align:center;
 }
 
-.contact-section h2 {
-  font-family: 'Press Start 2P';
-  font-size: 2rem;
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
-  margin-bottom: 40px;
-}
-
-.contact-box {
-  max-width: 520px;
-  margin: auto;
-  padding: 30px;
-  background: #111;
-  border-radius: 15px;
-  border: 2px solid #00ffff;
-  box-shadow: 0 0 25px #00ffff55;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  margin: 18px 0;
-  padding: 12px;
-  background: #1a1a1a;
-  border-radius: 10px;
-  transition: .3s;
-  cursor:pointer;
-}
-.contact-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px #00ffff;
-}
-.icon { font-size:1.5rem; margin-right:10px; }
-
-.contact-item a {
+#contact h2 {
+  font-family:'Press Start 2P';
+  font-size:2.2rem;
   color:#00ffff;
+  text-shadow:0 0 12px #00ffff, 0 0 20px #ff00ff;
+  margin-bottom:35px;
+}
+
+.contact-info {
+  max-width:500px;
+  margin:auto;
+  padding:25px;
+  background:#111;
+  border-radius:15px;
+  border:2px solid #00ffff;
+  box-shadow:0 0 25px #00ffff55, inset 0 0 25px #ff00ff55;
+}
+
+.contact-info p {
   font-size:1.2rem;
+  color:#00ffff;
+  padding:15px;
+  margin:12px 0;
+  border-radius:10px;
+  background:#1a1a1a;
+  transition:.3s;
+  box-shadow:0 0 12px #00ffff44;
+}
+
+.contact-info p:hover {
+  transform:scale(1.08);
+  box-shadow:0 0 18px #00ffff, inset 0 0 20px #ff00ff;
+  color:#ff00ff;
+}
+
+.contact-info a {
+  color:#00ffff;
   font-weight:bold;
   text-decoration:none;
 }
-.contact-item a:hover { color:#ff00ff; }
+.contact-info a:hover { color:#ff00ff; }
 
 /* ===== Footer ===== */
 footer {
-  text-align:center; padding:20px; background:#111;
+  text-align:center; padding:25px;
+  background:#111; font-size:1rem;
 }
 </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <div class="logo">VASU SEJANI</div>
-  <div>
+  <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#work">Work</a>
@@ -168,27 +150,26 @@ footer {
 </nav>
 
 <!-- HERO -->
-<section id="home">
+<section id="home" class="hero">
   <h1>👋 Hey, I'm Vasu!</h1>
-  <h2>Neon Web Developer • Designer • Full-Stack Builder 🚀</h2>
+  <p><h2>Crazy neon web developer — scroll for magic 🚀</h2></p>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="about">
   <img src="vasu.jpg">
-  <p>I’m Vasu — a full-stack dev who loves neon UI, glowing effects, and crazy animations.  
-  HTML, CSS, JS, PHP — I turn ideas into 🔥.</p>
+  <p>Yo! I'm Vasu — a full-stack dev from India. I love neon style websites, animations and crazy UI. I build everything from scratch!</p>
 </section>
 
 <!-- WORK -->
-<section id="work">
-  <h2 style="color:#00ffff; font-family:'Press Start 2P'; margin-bottom:40px;">My Projects</h2>
+<section id="work" class="work">
+  <h2 style="font-family:'Press Start 2P'; color:#00ffff;">My Projects</h2>
 
   <div class="work-grid">
-    <div class="work-item" data-index="0"><img src="img/P1-1.png"></div>
-    <div class="work-item" data-index="1"><img src="img/P2-1.png"></div>
-    <div class="work-item" data-index="2"><img src="img/P3-1.png"></div>
-    <div class="work-item" data-index="3"><img src="img/P4-3.png"></div>
+    <div class="work-item" data-project="0"><img src="img/P1-1.png"></div>
+    <div class="work-item" data-project="1"><img src="img/P2-1.png"></div>
+    <div class="work-item" data-project="2"><img src="img/P3-1.png"></div>
+    <div class="work-item" data-project="3"><img src="img/P4-3.png"></div>
   </div>
 </section>
 
@@ -201,44 +182,48 @@ footer {
 </div>
 
 <script>
+// ====== MULTI IMAGE PROJECTS ======
 const projectImages = [
-  ["img/P1-1.png","img/P1-2.png","img/P1-3.png"],
-  ["img/P2-1.png","img/P2-2.png","img/P2-3.png"],
-  ["img/P3-1.png","img/P3-2.png","img/P3-3.png"],
+  ["img/P1-1.png","img/P1-2.png","img/P1-3.png","img/P1-4.png","img/P1-5.png"],
+  ["img/P2-1.png","img/P2-2.png","img/P2-3.png","img/P2-4.png","img/P2-5.png"],
+  ["img/P3-1.png","img/P3-2.png","img/P3-3.png","img/P3-4.png","img/P3-5.png"],
   ["img/P4-1.png","img/P4-2.png","img/P4-3.png"]
 ];
 
-let projectIndex = 0;
-let slideIndex = 0;
+let currentProjectIndex = 0;
+let currentSlideIndex = 0;
 
-document.querySelectorAll(".work-item").forEach(item => {
-  item.onclick = () => {
-    projectIndex = item.dataset.index;
-    slideIndex = 0;
+document.querySelectorAll('.work-item').forEach(item => {
+  item.addEventListener('click', () => {
+    currentProjectIndex = parseInt(item.getAttribute('data-project'));
+    currentSlideIndex = 0;
     openLightbox();
-  };
+  });
 });
 
 function openLightbox() {
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightbox-img").src = projectImages[projectIndex][slideIndex];
+  document.getElementById('lightbox').style.display = 'flex';
+  document.getElementById('lightbox-img').src =
+    projectImages[currentProjectIndex][currentSlideIndex];
 }
 function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
+  document.getElementById('lightbox').style.display = 'none';
 }
-function changeSlide(n) {
-  slideIndex += n;
-  let arr = projectImages[projectIndex];
-  if (slideIndex < 0) slideIndex = arr.length - 1;
-  if (slideIndex >= arr.length) slideIndex = 0;
-  document.getElementById("lightbox-img").src = arr[slideIndex];
+function changeSlide(step) {
+  const slides = projectImages[currentProjectIndex];
+  currentSlideIndex += step;
+  if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
+  if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+  document.getElementById('lightbox-img').src = slides[currentSlideIndex];
 }
 
-/* TOUCH SWIPE */
+// ===== TOUCH SLIDE ENABLED =====
 let startX = 0;
+
 document.getElementById("lightbox-img").addEventListener("touchstart", e => {
   startX = e.touches[0].clientX;
 });
+
 document.getElementById("lightbox-img").addEventListener("touchend", e => {
   let endX = e.changedTouches[0].clientX;
   if (startX - endX > 50) changeSlide(1);
@@ -250,41 +235,25 @@ document.getElementById("lightbox-img").addEventListener("touchend", e => {
 <section id="blog">
   <h2 style="font-family:'Press Start 2P'; color:#ff00ff;">Blog Posts</h2>
   <div class="blog-posts">
-    <div class="blog-post"><h3>Build Crazy Websites</h3><p>Neon, animations, motion UI — learn them!</p></div>
+    <div class="blog-post"><h3>Build Crazy Websites</h3><p>Neon, animations, motion UI — learn the secrets.</p></div>
     <div class="blog-post"><h3>Top 5 JS Tricks</h3><p>Improve interactivity with cool JS hacks.</p></div>
-    <div class="blog-post"><h3>Neon CSS Glow</h3><p>Create glowing neon UI like cyberpunk style.</p></div>
+    <div class="blog-post"><h3>Neon CSS Glow</h3><p>Create glowing neon cyberpunk style elements.</p></div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <h2>🔥 Contact Me</h2>
+<section id="contact">
+  <h2>Hit Me Up!</h2>
 
-  <div class="contact-box">
-
-    <div class="contact-item">
-      <span class="icon">📞</span>
-      <a href="tel:+916355961050">+91 63559 61050</a>
-    </div>
-
-    <div class="contact-item">
-      <span class="icon">💬</span>
-      <a href="https://wa.me/916355961050" target="_blank">WhatsApp Chat</a>
-    </div>
-
-    <div class="contact-item">
-      <span class="icon">✉️</span>
-      <a href="mailto:vasusejani123@gmail.com">vasusejani123@gmail.com</a>
-    </div>
-
-    <div class="contact-item">
-      <span class="icon">🔗</span>
-      <a href="https://linkedin.com/in/vasu-sejani5354" target="_blank">LinkedIn Profile</a>
-    </div>
-
+  <div class="contact-info">
+    <p>📞 Phone: <a href="tel:+916355961050">+91 63559 61050</a></p>
+    <p>💬 WhatsApp: <a href="https://wa.me/916355961050" target="_blank">Chat on WhatsApp</a></p>
+    <p>✉️ Email: <a href="mailto:vasusejani123@gmail.com">vasusejani123@gmail.com</a></p>
+    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/vasu-sejani5354" target="_blank">Vasu Sejani</a></p>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Vasu Sejani | All Rights Reserved
 </footer>
