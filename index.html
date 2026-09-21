@@ -1,13 +1,27 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vasu Sejani | Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <title>Vasu Sejani | Developer Portfolio</title>
+
+  <meta
+    name="description"
+    content="Vasu Sejani — Full-stack developer and designer building modern digital experiences."
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+    /* =========================================================
+       RESET
+    ========================================================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -19,21 +33,1744 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
+      font-family: "Inter", sans-serif;
+      background: #08090c;
+      color: #f5f7fa;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* ===== Sections ===== */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    ::selection {
+      background: #ffffff;
+      color: #08090c;
+    }
+
+
+    /* =========================================================
+       BACKGROUND
+    ========================================================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+
+      background:
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(99, 102, 241, 0.18),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(168, 85, 247, 0.14),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(14, 165, 233, 0.10),
+          transparent 30%
+        );
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 70px 70px;
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
+    }
+
+
+    /* =========================================================
+       GENERAL
+    ========================================================= */
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
     section {
-      padding: 100px 30px;
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      color: #a5b4fc;
+      margin-bottom: 18px;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: #818cf8;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 22px;
+    }
+
+    .section-description {
+      max-width: 650px;
+      color: #8f96a3;
+      font-size: 1rem;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    #home {
       min-height: 100vh;
+      padding: 60px 0;
+
       display: flex;
-      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .hero-small {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 100px;
+
+      background: rgba(255,255,255,0.035);
+      backdrop-filter: blur(12px);
+
+      color: #aeb5c1;
+      font-size: 0.8rem;
+      margin-bottom: 25px;
+    }
+
+    .hero-small span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 15px #34d399;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(
+        100deg,
+        #fff,
+        #a5b4fc 40%,
+        #c084fc
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      color: #9299a6;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      gap: 9px;
+
+      padding: 13px 20px;
+      border-radius: 10px;
+
+      font-size: 0.9rem;
+      font-weight: 700;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #08090c;
+    }
+
+    .btn-primary:hover {
+      background: #e9e9ed;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.08);
+    }
+
+
+    /* =========================================================
+       HERO CARD
+    ========================================================= */
+
+    .hero-card {
+      position: relative;
+      min-height: 470px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-card {
+      width: 320px;
+      height: 390px;
+
+      position: relative;
+
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.10),
+          rgba(255,255,255,0.025)
+        );
+
+      backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 40px 100px rgba(0,0,0,0.5);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transform: rotate(3deg);
+      transition: transform 0.5s ease;
+    }
+
+    .profile-card:hover {
+      transform: rotate(0deg) translateY(-8px);
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #6366f1,
+          #a855f7
+        );
+
+      filter: blur(45px);
+      opacity: 0.35;
+    }
+
+    .profile-image {
+      position: relative;
+      width: 210px;
+      height: 210px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.75);
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .floating-tag {
+      position: absolute;
+
+      padding: 9px 13px;
+
+      border-radius: 9px;
+      border: 1px solid rgba(255,255,255,0.12);
+
+      background: rgba(15,17,23,0.85);
+      backdrop-filter: blur(15px);
+
+      color: #d7dbe3;
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    .tag-one {
+      top: 35px;
+      left: -30px;
+    }
+
+    .tag-two {
+      bottom: 50px;
+      right: -35px;
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    #about {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 390px;
+      aspect-ratio: 1 / 1;
+
+      object-fit: cover;
+
+      border-radius: 25px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      filter: grayscale(20%);
+    }
+
+    .about-image::after {
+      content: "";
+      position: absolute;
+
+      width: 100%;
+      max-width: 390px;
+      height: 100%;
+
+      left: 15px;
+      top: 15px;
+
+      border: 1px solid #6366f1;
+      border-radius: 25px;
+
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    .about-content p {
+      color: #9299a6;
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .skill {
+      padding: 8px 12px;
+
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 8px;
+
+      background: rgba(255,255,255,0.035);
+
+      color: #c8ccd4;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+
+    /* =========================================================
+       PROJECTS
+    ========================================================= */
+
+    #work {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+
+      background: #101217;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      border-color: rgba(165,180,252,0.35);
+    }
+
+    .project-image {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #16181f;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+    }
+
+    .project:hover .project-image img {
+      transform: scale(1.06);
+      filter: brightness(0.75);
+    }
+
+    .project-number {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+
+      width: 35px;
+      height: 35px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(10px);
+
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 7px;
+    }
+
+    .project-content p {
+      color: #777f8d;
+      font-size: 0.85rem;
+    }
+
+    .project-arrow {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+
+      width: 36px;
+      height: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+      background: #fff;
+      color: #08090c;
+
+      font-weight: 700;
+
+      transform: translateY(10px);
+      opacity: 0;
+
+      transition: 0.3s ease;
+    }
+
+    .project:hover .project-arrow {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+
+    /* =========================================================
+       BLOG
+    ========================================================= */
+
+    #blog {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 45px;
+    }
+
+    .blog-card {
+      padding: 26px;
+
+      min-height: 220px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+
+      background: rgba(255,255,255,0.025);
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-7px);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(165,180,252,0.25);
+    }
+
+    .blog-number {
+      color: #6366f1;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .blog-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .blog-card p {
+      color: #7f8794;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    #contact {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 80px;
+    }
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+
+      padding: 70px;
+
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(99,102,241,0.20),
+          transparent 35%
+        ),
+        rgba(255,255,255,0.025);
+    }
+
+    .contact-box h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
+    }
+
+    .contact-box > p {
+      color: #858d9a;
+      max-width: 600px;
+      margin-bottom: 35px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 12px 16px;
+
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 10px;
+
+      background: rgba(0,0,0,0.20);
+
+      color: #cbd0d8;
+      font-size: 0.85rem;
+
+      transition: 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 0;
+      color: #666d79;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      transition: color 0.25s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+
+    /* =========================================================
+       LIGHTBOX
+    ========================================================= */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px;
+
+      background: rgba(0,0,0,0.94);
+      backdrop-filter: blur(12px);
+
+      z-index: 9999;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(1000px, 90vw);
+      max-height: 82vh;
+
+      object-fit: contain;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 30px 100px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .lightbox-close {
+      top: 25px;
+      right: 25px;
+      font-size: 25px;
+    }
+
+    .lightbox-prev {
+      left: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+    }
+
+    .lightbox-next {
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .hero-card {
+        min-height: 400px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .about-image img,
+      .about-image::after {
+        max-width: 340px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      section {
+        padding: 85px 0;
+      }
+
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      #home {
+        min-height: auto;
+        padding: 80px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.1rem, 17vw, 5rem);
+      }
+
+      .hero-text {
+        font-size: 0.95rem;
+      }
+
+      .profile-card {
+        width: 275px;
+        height: 340px;
+      }
+
+      .profile-image {
+        width: 175px;
+        height: 175px;
+      }
+
+      .tag-one {
+        left: -5px;
+      }
+
+      .tag-two {
+        right: -5px;
+      }
+
+      .projects-header {
+        display: block;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 38px 25px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .lightbox-prev {
+        left: 10px;
+      }
+
+      .lightbox-next {
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <section id="home">
+
+    <div class="container hero">
+
+      <div>
+
+        <div class="hero-small">
+          <span></span>
+          Available for new projects
+        </div>
+
+        <h1>
+          Hi, I'm
+          <span class="gradient">Vasu.</span>
+        </h1>
+
+        <p class="hero-text">
+          Full-stack developer and designer building modern,
+          fast and interactive digital experiences.
+          I turn ideas into clean, functional products.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#work" class="btn btn-primary">
+            View My Work →
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Let's Talk
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="profile-card">
+
+          <img
+            src="vasu.jpg"
+            alt="Vasu Sejani"
+            class="profile-image"
+          >
+
+          <div class="floating-tag tag-one">
+            Full-Stack Dev
+          </div>
+
+          <div class="floating-tag tag-two">
+            UI / UX
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       ABOUT
+  ======================================================== -->
+
+  <section id="about">
+
+    <div class="container about-grid">
+
+      <div class="about-image">
+
+        <img
+          src="vasu.jpg"
+          alt="Vasu Sejani"
+        >
+
+      </div>
+
+
+      <div class="about-content">
+
+        <div class="section-label">
+          About Me
+        </div>
+
+        <h2 class="section-title">
+          Building things
+          that actually work.
+        </h2>
+
+        <p>
+          I'm Vasu, a full-stack developer from India who enjoys
+          creating modern websites, applications and digital
+          experiences.
+        </p>
+
+        <p>
+          I focus on clean interfaces, useful functionality,
+          responsive layouts and turning ideas into real,
+          working products.
+        </p>
+
+        <div class="skills">
+
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">PHP</span>
+          <span class="skill">React</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">UI / UX</span>
+          <span class="skill">Responsive Design</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       PROJECTS
+  ======================================================== -->
+
+  <section id="work">
+
+    <div class="container">
+
+      <div class="projects-header">
+
+        <div>
+
+          <div class="section-label">
+            Selected Work
+          </div>
+
+          <h2 class="section-title">
+            Projects I've built.
+          </h2>
+
+        </div>
+
+        <p class="section-description">
+          A collection of projects showcasing development,
+          design and problem-solving.
+        </p>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="project" data-project="0">
+
+          <div class="project-image">
+
+            <img
+              src="img/P1-1.png"
+              alt="Restaurant Billing System"
+            >
+
+            <div class="project-number">
+              01
+            </div>
+
+          </div>
+
+          <div class="project-content">
+
+            <h3>
+              Restaurant Billing System
+            </h3>
+
+            <p>
+              Billing and management solution for restaurant operations.
+            </p>
+
+          </div>
+
+          <div class="project-arrow">
+            ↗
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project" data-project="1">
+
+          <div class="project-image">
+
+            <img
+              src="img/P2-1.png"
+              alt="QR Attendance System"
+            >
+
+            <div class="project-number">
+              02
+            </div>
+
+          </div>
+
+          <div class="project-content">
+
+            <h3>
+              QR Attendance System
+            </h3>
+
+            <p>
+              Digital attendance experience powered by QR technology.
+            </p>
+
+          </div>
+
+          <div class="project-arrow">
+            ↗
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project" data-project="2">
+
+          <div class="project-image">
+
+            <img
+              src="img/P3-1.png"
+              alt="Portfolio Website"
+            >
+
+            <div class="project-number">
+              03
+            </div>
+
+          </div>
+
+          <div class="project-content">
+
+            <h3>
+              Portfolio Website
+            </h3>
+
+            <p>
+              Personal portfolio focused on modern design and interaction.
+            </p>
+
+          </div>
+
+          <div class="project-arrow">
+            ↗
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 4 -->
+
+        <div class="project" data-project="3">
+
+          <div class="project-image">
+
+            <img
+              src="img/P4-3.png"
+              alt="Dynamic Invoice System"
+            >
+
+            <div class="project-number">
+              04
+            </div>
+
+          </div>
+
+          <div class="project-content">
+
+            <h3>
+              Dynamic Invoice System
+            </h3>
+
+            <p>
+              Dynamic invoice generation and management system.
+            </p>
+
+          </div>
+
+          <div class="project-arrow">
+            ↗
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       BLOG
+  ======================================================== -->
+
+  <section id="blog">
+
+    <div class="container">
+
+      <div class="section-label">
+        Thoughts & Ideas
+      </div>
+
+      <h2 class="section-title">
+        From the blog.
+      </h2>
+
+      <p class="section-description">
+        Things I enjoy learning, building and experimenting with.
+      </p>
+
+
+      <div class="blog-grid">
+
+
+        <article class="blog-card">
+
+          <div class="blog-number">
+            01 / DEVELOPMENT
+          </div>
+
+          <h3>
+            Build Crazy Websites
+          </h3>
+
+          <p>
+            Learn how to create bold and modern websites
+            with animations, interactions and strong visual design.
+          </p>
+
+        </article>
+
+
+        <article class="blog-card">
+
+          <div class="blog-number">
+            02 / JAVASCRIPT
+          </div>
+
+          <h3>
+            Top 5 JavaScript Tricks
+          </h3>
+
+          <p>
+            Discover practical JavaScript techniques for
+            creating more interactive web experiences.
+          </p>
+
+        </article>
+
+
+        <article class="blog-card">
+
+          <div class="blog-number">
+            03 / CSS
+          </div>
+
+          <h3>
+            CSS Animations
+          </h3>
+
+          <p>
+            Explore modern CSS animation techniques that
+            make interfaces feel more alive.
+          </p>
+
+        </article>
+
+
+        <article class="blog-card">
+
+          <div class="blog-number">
+            04 / DESIGN
+          </div>
+
+          <h3>
+            Responsive Design Tips
+          </h3>
+
+          <p>
+            Build websites that look and work properly
+            across phones, tablets and desktops.
+          </p>
+
+        </article>
+
+
+        <article class="blog-card">
+
+          <div class="blog-number">
+            05 / UI UX
+          </div>
+
+          <h3>
+            UI/UX Best Practices
+          </h3>
+
+          <p>
+            Simple principles for creating interfaces
+            that are clean, intuitive and enjoyable to use.
+          </p>
+
+        </article>
+
+
+        <article class="blog-card">
+
+          <div class="blog-number">
+            06 / PERFORMANCE
+          </div>
+
+          <h3>
+            Optimize Website Performance
+          </h3>
+
+          <p>
+            Practical ways to reduce loading time and
+            improve the overall experience of a website.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       CONTACT
+  ======================================================== -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div class="section-label">
+          Get In Touch
+        </div>
+
+        <h2>
+          Let's build<br>
+          something great.
+        </h2>
+
+        <p>
+          Have an idea, project or opportunity?
+          Feel free to reach out and let's start a conversation.
+        </p>
+
+
+        <div class="contact-links">
+
+          <a
+            href="tel:+916355961050"
+            class="contact-link"
+          >
+            📞
+            +91 63559 61050
+          </a>
+
+          <a
+            href="mailto:vasusejani123@gmail.com"
+            class="contact-link"
+          >
+            ✉
+            vasusejani123@gmail.com
+          </a>
+
+          <a
+            href="https://wa.me/916355961050"
+            target="_blank"
+            rel="noopener"
+            class="contact-link"
+          >
+            💬
+            WhatsApp
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/vasu-sejani5354"
+            target="_blank"
+            rel="noopener"
+            class="contact-link"
+          >
+            in
+            LinkedIn
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <p>
+        © 2025 Vasu Sejani. All rights reserved.
+      </p>
+
+      <div class="footer-links">
+
+        <a
+          href="https://www.linkedin.com/in/vasu-sejani5354"
+          target="_blank"
+          rel="noopener"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="https://github.com/vasu-5354"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.instagram.com/vaasuu_5354"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       LIGHTBOX
+  ======================================================== -->
+
+  <div
+    id="lightbox"
+    class="lightbox"
+    aria-hidden="true"
+  >
+
+    <button
+      class="lightbox-close"
+      onclick="closeLightbox()"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+    <button
+      class="lightbox-prev"
+      onclick="changeSlide(-1)"
+      aria-label="Previous image"
+    >
+      ‹
+    </button>
+
+    <img
+      id="lightbox-img"
+      src=""
+      alt="Project preview"
+    >
+
+    <button
+      class="lightbox-next"
+      onclick="changeSlide(1)"
+      aria-label="Next image"
+    >
+      ›
+    </button>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    const projectImages = [
+
+      [
+        "img/P1-1.png",
+        "img/P1-2.png",
+        "img/P1-3.png",
+        "img/P1-4.png",
+        "img/P1-5.png"
+      ],
+
+      [
+        "img/P2-1.png",
+        "img/P2-2.png",
+        "img/P2-3.png",
+        "img/P2-4.png",
+        "img/P2-5.png",
+        "img/P2-6.png"
+      ],
+
+      [
+        "img/P3-1.png",
+        "img/P3-2.png",
+        "img/P3-3.png",
+        "img/P3-4.png",
+        "img/P3-5.png",
+        "img/P3-6.png",
+        "img/P3-7.png"
+      ],
+
+      [
+        "img/P4-1.png",
+        "img/P4-2.png",
+        "img/P4-3.png"
+      ]
+
+    ];
+
+
+    let currentProjectIndex = 0;
+    let currentSlideIndex = 0;
+
+
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImage =
+      document.getElementById("lightbox-img");
+
+
+    /* OPEN */
+
+    function openLightbox(projectIndex) {
+
+      currentProjectIndex = projectIndex;
+      currentSlideIndex = 0;
+
+      lightboxImage.src =
+        projectImages[currentProjectIndex][currentSlideIndex];
+
+      lightbox.classList.add("active");
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.style.overflow = "hidden";
+    }
+
+
+    /* CLOSE */
+
+    function closeLightbox() {
+
+      lightbox.classList.remove("active");
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.style.overflow = "";
+    }
+
+
+    /* NEXT / PREVIOUS */
+
+    function changeSlide(step) {
+
+      const slides =
+        projectImages[currentProjectIndex];
+
+      currentSlideIndex += step;
+
+
+      if (
+        currentSlideIndex < 0
+      ) {
+        currentSlideIndex =
+          slides.length - 1;
+      }
+
+
+      if (
+        currentSlideIndex >= slides.length
+      ) {
+        currentSlideIndex = 0;
+      }
+
+
+      lightboxImage.src =
+        slides[currentSlideIndex];
+    }
+
+
+    /* PROJECT CLICK */
+
+    document
+      .querySelectorAll(".project")
+      .forEach(project => {
+
+        project.addEventListener(
+          "click",
+          () => {
+
+            const projectIndex =
+              Number(
+                project.getAttribute(
+                  "data-project"
+                )
+              );
+
+            openLightbox(projectIndex);
+
+          }
+        );
+
+      });
+
+
+    /* KEYBOARD */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          !lightbox.classList.contains("active")
+        ) {
+          return;
+        }
+
+
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+
+
+        if (event.key === "ArrowLeft") {
+          changeSlide(-1);
+        }
+
+
+        if (event.key === "ArrowRight") {
+          changeSlide(1);
+        }
+
+      }
+    );
+
+
+    /* CLICK OUTSIDE IMAGE */
+
+    lightbox.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === lightbox
+        ) {
+          closeLightbox();
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
+```
     }
 
     #home {
